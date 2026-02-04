@@ -318,11 +318,3 @@ User data in Redux is encrypted using `redux-persist-transform-encrypt` before b
 ## License
 
 This project is licensed under the MIT License.
-
-## Acknowledgments
-
-- [Next.js](https://nextjs.org/)
-- [Redux Toolkit](https://redux-toolkit.js.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
-- [Sonner](https://sonner.emilkowal.ski/)
