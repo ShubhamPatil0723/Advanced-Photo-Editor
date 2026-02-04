@@ -2,6 +2,8 @@
 
 A web-based photo editor built with Next.js, Redux Toolkit, and Konva. Features a rich UI for creating and manipulating designs with layers, shapes, text, and images.
 
+## Live Demo: [website]([url](https://advanced-photo-editor-nine.vercel.app/))
+
 ## Features
 
 - **Canvas Editing**: Drag, resize, rotate, and transform elements.
@@ -205,7 +207,7 @@ const { data, error } = await fetcher("/api/users", {
 });
 ```
 
-## 🎨 Styling
+## Styling
 
 ### Tailwind CSS
 
