@@ -2,7 +2,7 @@
 
 A web-based photo editor built with Next.js, Redux Toolkit, and Konva. Features a rich UI for creating and manipulating designs with layers, shapes, text, and images.
 
-## 🚀 Features
+## Features
 
 - **Canvas Editing**: Drag, resize, rotate, and transform elements.
 - **Tools**: Text, Shapes (Rect, Circle, Line), Images, Icons.
@@ -12,7 +12,7 @@ A web-based photo editor built with Next.js, Redux Toolkit, and Konva. Features 
 - **Helpers**: Snapping guides for precise alignment.
 - **Theme**: Dark/Light mode support inspired by Excalidraw.
 
-## ⌨️ Shortcuts
+## Shortcuts
 
 | Action           | Shortcut (Mac)                   | Shortcut (Windows/Linux)         |
 | ---------------- | -------------------------------- | -------------------------------- |
@@ -23,7 +23,7 @@ A web-based photo editor built with Next.js, Redux Toolkit, and Konva. Features 
 | **Group**        | (Toolbar Button)                 | (Toolbar Button)                 |
 | **Ungroup**      | (Toolbar Button)                 | (Toolbar Button)                 |
 
-## 🏗️ Technical Implementation
+## Technical Implementation
 
 ### State Management
 
@@ -61,7 +61,7 @@ Export is handled via `konva.toDataURL()`. The Stage ref allows extracting the c
 3.  **Selective Rendering**: separation of `RootElements` and recursive `Group` rendering ensures cleanly structured component tree.
 4.  **Debouncing/Event Throttling**: Used in future improvements for heavy operations (currently direct updates are fast enough for typical load).
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -91,7 +91,7 @@ src/
 └── middleware.ts         # Authentication middleware
 ```
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -142,7 +142,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) to see the application.
 
-## 🔐 Authentication
+## Authentication
 
 ### JWT Middleware
 
@@ -224,7 +224,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 <ThemeToggle />;
 ```
 
-## 📝 Available Scripts
+## Available Scripts
 
 ```bash
 # Development

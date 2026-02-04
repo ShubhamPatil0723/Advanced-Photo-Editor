@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Rect, Circle, Text as KonvaText, Image as KonvaImage } from 'react-konva';
+import { Rect, Circle, Text as KonvaText, Image as KonvaImage, Path } from 'react-konva';
 import useImage from 'use-image';
 import type { EditorElement } from '@/types/editor';
+import { ICON_LIBRARY } from '@/config/icon-library';
 import { useAppDispatch, useAppSelector } from '@/redux/store/hooks';
 import { setEditingId } from '@/redux/features/editorSlice';
 
@@ -122,6 +123,21 @@ export const CanvasElement: React.FC<CanvasElementProps> = ({
         <KonvaImage
           {...commonProps}
           image={image}
+          visible={element.visible !== false}
+        />
+      );
+    case 'icon':
+      const pathData = ICON_LIBRARY[element.name] || ICON_LIBRARY['star'] || '';
+      const scaleX = element.width / 24;
+      const scaleY = element.height / 24;
+
+      return (
+        <Path
+          {...commonProps}
+          data={pathData}
+          fill={element.fill}
+          scaleX={scaleX}
+          scaleY={scaleY}
           visible={element.visible !== false}
         />
       );

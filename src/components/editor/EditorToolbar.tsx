@@ -16,6 +16,7 @@ import {
   MousePointer2,
   Circle,
   FileDown,
+  Star,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Separator } from '@/components/ui/separator';
@@ -28,6 +29,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { ICON_LIBRARY } from '@/config/icon-library';
 import jsPDF from 'jspdf';
 import ThemeToggle from '../ThemeToggle';
 
@@ -104,6 +111,22 @@ export const EditorToolbar: React.FC = () => {
       dispatch(addElement(newImage));
     };
     reader.readAsDataURL(file);
+  };
+
+  const addIcon = (iconName: string) => {
+    const newIcon = {
+      id: `icon-${Date.now()}`,
+      type: 'icon' as const,
+      name: iconName,
+      x: 200,
+      y: 200,
+      width: 60,
+      height: 60,
+      rotation: 0,
+      opacity: 1,
+      fill: '#000000',
+    };
+    dispatch(addElement(newIcon as any));
   };
 
   const exportAsImage = () => {
@@ -190,6 +213,43 @@ export const EditorToolbar: React.FC = () => {
             accept="image/*"
             onChange={handleImageUpload}
           />
+
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant="outline" size="sm" className="gap-2">
+                <Star className="h-4 w-4" />
+                Icon
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80">
+              <div className="grid grid-cols-6 gap-2">
+                {Object.keys(ICON_LIBRARY).map((name) => (
+                  <Button
+                    key={name}
+                    variant="ghost"
+                    size="icon"
+                    className="h-10 w-10 p-2 hover:bg-muted"
+                    onClick={() => addIcon(name)}
+                    title={name}
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-6 w-6"
+                    >
+                      <path d={ICON_LIBRARY[name]} />
+                    </svg>
+                  </Button>
+                ))}
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
 
         <Separator orientation="vertical" className="h-8 mx-2" />

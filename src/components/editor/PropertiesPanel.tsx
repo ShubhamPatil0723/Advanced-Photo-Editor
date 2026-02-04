@@ -243,6 +243,23 @@ export const PropertiesPanel: React.FC = () => {
           </div>
         </>
       )}
+
+      {selectedElement.type === 'icon' && (
+        <>
+          <Separator />
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <Label className="text-[10px] text-muted-foreground uppercase font-bold">Icon Color</Label>
+              <input
+                type="color"
+                value={selectedElement.fill}
+                onChange={(e) => handleChange({ fill: e.target.value })}
+                className="w-10 h-6 rounded cursor-pointer p-0 border border-muted-foreground/20"
+              />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
